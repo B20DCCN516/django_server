@@ -15,7 +15,7 @@ import requests
 @require_http_methods(["GET"])
 def search_product_by_key(request):
     query = request.GET.get('search','')
-    category_request = requests.get('http://127.0.0.1:8000/api/catalog/getCategories')
+    category_request = requests.get('http://127.0.0.1:8008/api/catalog/getCategories')
     categories = category_request.json() if category_request.status_code == 200 else []
     # Chuẩn bị dữ liệu cho mỗi danh mục
     category_items = []

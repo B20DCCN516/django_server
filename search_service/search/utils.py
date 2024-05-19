@@ -6,13 +6,13 @@ import requests
 
 def filterAPI(key,category_id):
     print(key,category_id)
-    book_response = requests.get(f'http://127.0.0.1:8000/api/book/search?key={key}&category_id={category_id}')
+    book_response = requests.get(f'http://127.0.0.1:8008/api/book/search?key={key}&category_id={category_id}')
     books = book_response.json() if book_response.status_code == 200 else []
 
-    mobile_response = requests.get(f'http://127.0.0.1:8000/api/mobile/search?key={key}&category_id={category_id}')
+    mobile_response = requests.get(f'http://127.0.0.1:8008/api/mobile/search?key={key}&category_id={category_id}')
     mobiles = mobile_response.json() if mobile_response.status_code == 200 else []
 
-    clothes_response = requests.get(f'http://127.0.0.1:8000/api/clothes/search?key={key}&category_id={category_id}')
+    clothes_response = requests.get(f'http://127.0.0.1:8008/api/clothes/search?key={key}&category_id={category_id}')
     clothes = clothes_response.json() if clothes_response.status_code == 200 else []
     products = books + mobiles + clothes
     return products
