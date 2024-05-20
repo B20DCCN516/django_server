@@ -17,6 +17,7 @@ def filterAPI(key,category_id):
     products = books + mobiles + clothes
     return products
 
+
 def filterByCategory(products, category_id):
     items = []
     for product in products:

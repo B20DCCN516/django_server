@@ -7,6 +7,7 @@ def itemCartJson(items):
     for item in items:
         product = item.getProduct()
         item_json = {
+            'id': item.id,
             'product': {
                 'product_id': item.product_id,
                 'name': product['name'],

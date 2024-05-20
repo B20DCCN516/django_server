@@ -28,10 +28,15 @@ def get_cart_items(request):
 
 
 @require_http_methods(["GET"])
-def remove_item(request,item_id):
-    item = CartItem.objects.get(id=item_id)
-    item.delete()
-    return redirect('/cart')
+def remove_item(request,cart_id):
+    response = {}
+    try:
+        item = CartItem.objects.get(id=cart_id)
+        item.delete()
+        response = {"status": 1}
+    except:
+        response = {"status": 0}
+    return JsonResponse(response,safe=False)
 
 @csrf_exempt
 @require_http_methods(["POST"])
